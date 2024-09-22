@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listaAlunosFragment">
+
+    <!-- Lista de Alunos -->
+    <fragment
+        android:id="@+id/listaAlunosFragment"
+        android:name="com.example.cadastroalunos.ui.listagem.ListaAlunosFragment"
+        android:label="Lista de Alunos">
+
+        <!-- Ação para cadastrar novo aluno -->
+        <action
+            android:id="@+id/action_listaAlunosFragment_to_cadastroAlunoFragment"
+            app:destination="@id/cadastroAlunoFragment" />
+
+        <!-- Ação para abrir o fragmento de cadastro de pagamento -->
+        <action
+            android:id="@+id/action_listaAlunosFragment_to_cadastroPagamentoFragment"
+            app:destination="@id/cadastroPagamentoFragment">
+            <argument
+                android:name="cpfAluno"
+                app:argType="string" />
+            <argument
+                android:name="nomeAluno"
+                app:argType="string" />
+        </action>
+
+        <!-- Ação para abrir os detalhes do aluno -->
+        <action
+            android:id="@+id/action_listaAlunosFragment_to_alunoDetalhesFragment"
+            app:destination="@id/alunoDetalhesFragment">
+            <argument
+                android:name="cpfAluno"
+                app:argType="string" />
+            <argument
+                android:name="nomeAluno"
+                app:argType="string" />
+        </action>
+
+        <!-- Ação para abrir a lista de pagamentos -->
+        <action
+            android:id="@+id/action_listaAlunosFragment_to_listaPagamentoFragment"
+            app:destination="@id/listaPagamentoFragment">
+            <argument
+                android:name="cpfAluno"
+                app:argType="string" />
+            <argument
+                android:name="nomeAluno"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <!-- Cadastro de Aluno -->
+    <fragment
+        android:id="@+id/cadastroAlunoFragment"
+        android:name="com.example.cadastroalunos.ui.cadastro.CadastroAlunoFragment"
+        android:label="Cadastro de Aluno">
+        <argument
+            android:name="cpfAluno"
+            app:argType="string"
+            android:defaultValue="" />
+        <action
+            android:id="@+id/action_cadastroAlunoFragment_to_listaAlunosFragment"
+            app:destination="@id/listaAlunosFragment" />
+    </fragment>
+
+    <!-- Cadastro de Pagamento -->
+    <fragment
+        android:id="@+id/cadastroPagamentoFragment"
+        android:name="com.example.cadastroalunos.ui.pagamento.CadastroPagamentoFragment"
+        android:label="Cadastro de Pagamento">
+        <argument
+            android:name="cpfAluno"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="nomeAluno"
+            app:argType="string"
+            android:defaultValue="" />
+        <action
+            android:id="@+id/action_cadastroPagamentoFragment_to_listaAlunosFragment"
+            app:destination="@id/listaAlunosFragment" />
+    </fragment>
+
+    <!-- Detalhes do Aluno -->
+    <fragment
+        android:id="@+id/alunoDetalhesFragment"
+        android:name="com.example.cadastroalunos.ui.listagem.AlunoDetalhesFragment"
+        android:label="Detalhes do Aluno">
+        <argument
+            android:name="cpfAluno"
+            app:argType="string" />
+        <argument
+            android:name="nomeAluno"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_alunoDetalhesFragment_to_listaAlunosFragment"
+            app:destination="@id/listaAlunosFragment" />
+        <action
+            android:id="@+id/action_alunoDetalhesFragment_to_listaPagamentoFragment"
+            app:destination="@id/listaPagamentoFragment">
+            <argument
+                android:name="cpfAluno"
+                app:argType="string" />
+            <argument
+                android:name="nomeAluno"
+                app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_alunoDetalhesFragment_to_cadastroAlunoFragment"
+            app:destination="@id/cadastroAlunoFragment" />
+    </fragment>
+
+    <!-- Lista de Pagamento -->
+    <fragment
+        android:id="@+id/listaPagamentoFragment"
+        android:name="com.example.cadastroalunos.ui.pagamento.ListaPagamentoFragment"
+        android:label="Lista de Pagamento">
+        <argument
+            android:name="cpfAluno"
+            app:argType="string" />
+        <argument
+            android:name="nomeAluno"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_listaPagamentoFragment_to_cadastroPagamentoFragment"
+            app:destination="@id/cadastroPagamentoFragment">
+            <argument
+                android:name="cpfAluno"
+                app:argType="string" />
+            <argument
+                android:name="nomeAluno"
+                app:argType="string" />
+        </action>
+    </fragment>
+</navigation>

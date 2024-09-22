@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Tema da Aplicação -->
+    <style name="Theme.CadastroAlunos" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Personalizações do tema -->
+        <!-- Exemplo: -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+    </style>
+
+    <!-- Tema sem ActionBar para a MainActivity -->
+    <style name="Theme.CadastroAlunos.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Personalizações adicionais -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+    </style>
+
+</resources>

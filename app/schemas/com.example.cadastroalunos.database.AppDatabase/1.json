@@ -1,0 +1,130 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "16741a2ded67668d24c22b7aa29197c7",
+    "entities": [
+      {
+        "tableName": "Aluno",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cpf` TEXT NOT NULL, `nome` TEXT NOT NULL, `telefone` TEXT NOT NULL, `foto` BLOB, `ativo` INTEGER NOT NULL, `tipoCurso` TEXT NOT NULL, PRIMARY KEY(`cpf`))",
+        "fields": [
+          {
+            "fieldPath": "cpf",
+            "columnName": "cpf",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nome",
+            "columnName": "nome",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "telefone",
+            "columnName": "telefone",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "foto",
+            "columnName": "foto",
+            "affinity": "BLOB",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ativo",
+            "columnName": "ativo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipoCurso",
+            "columnName": "tipoCurso",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "cpf"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Pagamento",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cpfAluno` TEXT NOT NULL, `valor` REAL NOT NULL, `data` INTEGER NOT NULL, `fotoBytes` BLOB, FOREIGN KEY(`cpfAluno`) REFERENCES `Aluno`(`cpf`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cpfAluno",
+            "columnName": "cpfAluno",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valor",
+            "columnName": "valor",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "data",
+            "columnName": "data",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fotoBytes",
+            "columnName": "fotoBytes",
+            "affinity": "BLOB",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_Pagamento_cpfAluno",
+            "unique": false,
+            "columnNames": [
+              "cpfAluno"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Pagamento_cpfAluno` ON `${TABLE_NAME}` (`cpfAluno`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Aluno",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "cpfAluno"
+            ],
+            "referencedColumns": [
+              "cpf"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '16741a2ded67668d24c22b7aa29197c7')"
+    ]
+  }
+}

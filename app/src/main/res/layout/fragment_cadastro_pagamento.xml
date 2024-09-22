@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:id="@+id/fragment_cadastro_pagamento"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- TextView para o nome do aluno (opcional) -->
+            <TextView
+                android:id="@+id/textViewNomeAluno"
+                android:text="Nome do Aluno"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- EditText para Valor -->
+            <EditText
+                android:id="@+id/editTextValor"
+                android:hint="Valor"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- DatePicker para Data -->
+            <TextView
+                android:id="@+id/textViewData"
+                android:text="Data"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <DatePicker
+                android:id="@+id/datePickerPagamento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false" />
+
+            <!-- Botão para salvar -->
+            <Button
+                android:id="@+id/buttonSalvarPagamento"
+                android:text="Salvar Pagamento"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Nome do Aluno -->
+        <TextView
+            android:id="@+id/textViewNomeAluno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nome do Aluno"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Foto do Aluno -->
+        <ImageView
+            android:id="@+id/imageViewFotoAluno"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Foto do Aluno" />
+
+        <!-- Botão para editar aluno -->
+        <Button
+            android:id="@+id/buttonEditarAluno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editar" />
+
+        <!-- Botão para deletar aluno -->
+        <Button
+            android:id="@+id/buttonDeletarAluno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deletar" />
+
+        <!-- Botão para ver pagamentos -->
+        <Button
+            android:id="@+id/buttonVerPagamentos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pagamentos" />
+    </LinearLayout>
+</layout>
